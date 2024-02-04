@@ -1,0 +1,40 @@
+{
+  "name": "json-scrambler-proxy",
+  "version": "1.0.0",
+  "description": "Web Proxy for JSON Scrambler",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "tap run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbarre/json-scrambler-proxy.git"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "fastify",
+    "proxy",
+    "json",
+    "testing",
+    "fuzzing"
+  ],
+  "author": "Seb Barre <sbarre@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sbarre/json-scrambler-proxy/issues"
+  },
+  "homepage": "https://github.com/sbarre/json-scrambler-proxy#readme",
+  "devDependencies": {
+    "sinon": "^17.0.1",
+    "tap": "^18.7.0"
+  },
+  "dependencies": {
+    "@fastify/http-proxy": "^9.4.0",
+    "dotenv": "^16.4.1",
+    "fastify": "^4.26.0"
+  }
+}
