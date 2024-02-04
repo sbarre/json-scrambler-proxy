@@ -2,10 +2,10 @@
   "name": "json-scrambler-proxy",
   "version": "1.0.0",
   "description": "Web Proxy for JSON Scrambler",
-  "main": "src/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node index.js",
     "test": "tap run"
   },
   "repository": {
