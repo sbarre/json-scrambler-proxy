@@ -5,18 +5,17 @@ import scrambler from 'json-scrambler';
 
 import 'dotenv/config';
 
-const PORT = process.env.PORT || 3000;
 const MAX_PAYLOAD_SIZE = 1048576 * 10;
 
 // Proxy options
-const UPSTREAM = process.env.UPSTREAM || 'http://localhost:4000';
-// const PREFIX = process.env.PREFIX || '/';
+const PROXY_PORT = process.env.PROXY_PORT || 4000;
+const PROXY_UPSTREAM = process.env.PROXY_UPSTREAM || 'http://localhost:3000';
 
 // Scrambler options
-const CHAOS = process.env.CHAOS || 10;
+const SCRAMBLER_CHAOS = process.env.SCRAMBLER_CHAOS || 10;
 
 const scramblerOptions = {
-  chaos: CHAOS,
+  chaos: SCRAMBLER_CHAOS,
   scrambleStructureOnly: true
 };
 
@@ -26,7 +25,7 @@ const fastify = Fastify({
 });
 
 fastify.register(proxy, {
-  upstream: UPSTREAM,
+  upstream: PROXY_UPSTREAM,
   prefix: '/',
   disableRequestLogging: true,
   proxyPayloads: false
@@ -44,7 +43,7 @@ fastify.addHook('onSend', (request, reply, payload, done) => {
   })
 });
 
-fastify.listen({ port: PORT }, (err, address) => {
+fastify.listen({ port: PROXY_PORT }, (err, address) => {
   if (err) {
     fastify.log.error(err);
     process.exit(1);

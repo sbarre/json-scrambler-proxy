@@ -12,11 +12,11 @@ Built on [Fastify](https://fastify.dev/) and the [@fastify/http-proxy](https://g
 
 Create a `.env` file in the directory with the following values:
 
-| Variable Name | Description                                                                                    |
-| :------------ | :--------------------------------------------------------------------------------------------- |
-| PORT          | The port on which you want to run the proxy server (default: **3000**)                         |
-| UPSTREAM      | The full URL to the API you want to proxy (default: **http://localhost:4000)**                 |
-| CHAOS         | The `chaos` property to pass to `json-scrambler`, a value between 0 and 100. (default: **10**) |
+| Variable Name   | Description                                                                                    |
+| :-------------- | :--------------------------------------------------------------------------------------------- |
+| PROXY_PORT      | The port on which you want to run the proxy server (default: **4000**)                         |
+| PROXY_UPSTREAM  | The full URL to the API you want to proxy (default: **http://localhost:3000)**                 |
+| SCRAMBLER_CHAOS | The `chaos` property to pass to `json-scrambler`, a value between 0 and 100. (default: **10**) |
 
 Then run:
 
