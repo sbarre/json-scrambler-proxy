@@ -1,10 +1,12 @@
 # JSON Scrambler Proxy
 
-**An HTTP Proxy that uses [json-scrambler](https://github.com/sbarre/json-scrambler) to scramble upstream responses in realtime.**
+**An HTTPS Proxy that uses [json-scrambler](https://github.com/sbarre/json-scrambler) to scramble upstream responses in realtime.**
 
 ## What is this about?
 
-An easy way to proxy any HTTPS API that returns JSON and apply JSON Scrambler to the response before returning it to the client.
+An easy way to proxy any HTTPS API that returns JSON and apply JSON Scrambler's `scramble()` to the response body before returning it to the client.
+
+Built on [Fastify](https://fastify.dev/) and the [@fastify/http-proxy](https://github.com/fastify/fastify-http-proxy) plugin.
 
 ## Installation
 
@@ -23,3 +25,11 @@ npm start
 ```
 
 Docker configuration coming soon!
+
+## Tests
+
+Tests coming soon!
+
+## LICENSE
+
+json-scrambler-proxy is licensed under the MIT license.
