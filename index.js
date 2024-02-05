@@ -9,14 +9,14 @@ const MAX_PAYLOAD_SIZE = 1048576 * 10;
 
 // Proxy options
 const PROXY_PORT = process.env.PROXY_PORT || 4000;
-const PROXY_UPSTREAM = process.env.PROXY_UPSTREAM || 'http://localhost:3000';
+const PROXY_UPSTREAM = process.env.PROXY_UPSTREAM || 'https://jsonplaceholder.typicode.com/';
 
 // Scrambler options
 const SCRAMBLER_CHAOS = process.env.SCRAMBLER_CHAOS || 10;
 
 const scramblerOptions = {
   chaos: SCRAMBLER_CHAOS,
-  scrambleStructureOnly: true
+  scrambleStructureOnly: false
 };
 
 const fastify = Fastify({
@@ -37,9 +37,11 @@ fastify.addHook('onSend', (request, reply, payload, done) => {
   const data = [];
   payload.on('data', chunk => data.push(chunk));
   payload.on('end', () => {
+
     const body = Buffer.concat(data).toString('utf8');
     const scrambledBody = scrambler(body, scramblerOptions);
     done(null, scrambledBody);
+    // done(null, body);
   })
 });
 
