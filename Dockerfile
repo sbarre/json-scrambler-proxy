@@ -21,5 +21,7 @@ COPY --from=base /app /app
 
 USER nonroot
 
+EXPOSE 4000
+
 # Define the command to run the application
 CMD [ "index.js" ]
